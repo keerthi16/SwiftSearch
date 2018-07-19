@@ -21,7 +21,7 @@ export default class SearchUtils {
      * @returns {Promise}
      */
     public checkFreeSpace(): Promise<boolean> {
-        return checkDiskSpace();
+        return Promise.resolve(true);
     }
 
     /**
