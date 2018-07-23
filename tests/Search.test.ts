@@ -47,18 +47,15 @@ describe('Tests for Search', () => {
         userId = 12345678910112;
         key = 'jjjehdnctsjyieoalskcjdhsnahsadndfnusdfsdfsd=';
 
-        executionPath = path.join(__dirname, 'library');
+        executionPath = path.join(__dirname, '..', 'library');
         if (isWindowsOS) {
             executionPath = path.join(__dirname, '..', 'library');
         }
         userConfigDir = path.join(__dirname, '..');
 
-        console.log("executionPath" + executionPath);
-        console.log("userConfigDir" + userConfigDir);
-
         libSymphonySearch = require('../src/searchLibrary').libSymphonySearch;
         searchConfig = require('../src/searchConfig').searchConfig;
-        console.log("LibraryPath" + searchConfig.LIBRARY_CONSTANTS.SEARCH_LIBRARY_PATH);
+        console.log(JSON.stringify(searchConfig));
         if (fs.existsSync(path.join(userConfigDir, 'search_index_12345678910112.tar.lz4'))) {
             fs.unlinkSync(path.join(userConfigDir, 'search_index_12345678910112.tar.lz4'));
         }
