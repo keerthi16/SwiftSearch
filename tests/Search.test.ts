@@ -53,8 +53,20 @@ describe('Tests for Search', () => {
         }
         userConfigDir = path.join(__dirname, '..');
 
-        libSymphonySearch = require('../src/searchLibrary').libSymphonySearch;
-        searchConfig = require('../src/searchConfig').searchConfig;
+        try {
+            searchConfig = require('../src/searchConfig').searchConfig;
+        } catch (e) {
+            console.log('did error searchConfig');
+            console.log(e);
+        }
+
+        try {
+            libSymphonySearch = require('../src/searchLibrary').libSymphonySearch;
+        } catch (e) {
+            console.log('did error libSymphonySearch');
+            console.log(e);
+        }
+
         console.log(JSON.stringify(searchConfig));
         if (fs.existsSync(path.join(userConfigDir, 'search_index_12345678910112.tar.lz4'))) {
             fs.unlinkSync(path.join(userConfigDir, 'search_index_12345678910112.tar.lz4'));
