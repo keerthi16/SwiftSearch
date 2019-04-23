@@ -1,4 +1,4 @@
-import { app } from 'electron';
+// import { app } from 'electron';
 import * as path from 'path';
 import { ElectronLogInterface, LogWindow } from '../interface/interface';
 import { getCmdLineArg } from '../utils/getCmdLineArg';
@@ -104,7 +104,7 @@ const loggerInstance = new Logger();
  */
 function initializeLocalLogger() {
     electronLog = require('electron-log');
-    electronLog.transports.file.file = path.join(app.getPath('logs'), 'app.log');
+    electronLog.transports.file.file = path.join(process.argv[4], 'app.log');
     electronLog.transports.file.level = 'debug';
     electronLog.transports.file.format = '{h}:{i}:{s}:{ms} {text}';
     electronLog.transports.file.maxSize = 10 * 1024 * 1024;

@@ -123,7 +123,6 @@ export interface SSAPIBridgeInterface {
     indexBatchCallback(requestId: number, status: boolean, data: string): void;
     getLatestTimestampCallback(requestId: number, status: boolean, timestamp: string): void;
     searchCallback(requestId: number, data: any): void;
-    setBroadcastMessage(eventCallback: () => void): void;
     checkDiskSpace(data: PostDataFromSFE): void;
     getSearchUserConfig(data: PostDataFromSFE): void;
     updateUserConfig(data: PostDataFromSFE): void;
@@ -133,13 +132,20 @@ export interface SSAPIBridgeInterface {
 }
 
 export interface PostSuccessCallback {
+    requestId: number;
     method: string;
     response: any;
 }
 
 export interface PostErrorCallback {
+    requestId: number;
     method: string;
     error: any;
+}
+
+export interface CallbackPayload {
+    method: string;
+    message: PostDataFromSFE | PostDataFromSFE;
 }
 
 export interface PostDataFromSFE {

@@ -1,10 +1,8 @@
-import * as electron from 'electron';
 import * as path from 'path';
 import { isDevEnv, isMac } from './utils/misc';
 
-const app = electron.app;
-const userData = path.join(app.getPath('userData'));
-const execPath = path.dirname(app.getPath('exe'));
+const userData = path.join(process.argv[3]);
+const execPath = path.dirname(process.argv[2]);
 
 const winLibraryPath = isDevEnv ? path.join(__dirname, '..', 'library') : path.join(execPath, 'library');
 const macLibraryPath = isDevEnv ? path.join(__dirname, '..', 'library') : path.join(execPath, '..', 'library');
