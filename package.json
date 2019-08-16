@@ -7,7 +7,6 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "rebuild": "electron-rebuild -f",
-    "postinstall": "npm run build",
     "demo": "tsc ./demo/*.ts && cross-env ELECTRON_DEV=true electron ./demo/main.js",
     "build": "git clean -xdf ./lib && npm run rebuild && npm run lint && tsc",
     "lint": "tslint --project tsconfig.json",
